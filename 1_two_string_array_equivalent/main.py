@@ -1,5 +1,6 @@
-"""
-На вход даны два массива строк array_string_1 и array_string_2,
+"""Домашнее задание 1.
+
+На вход даны два массива строк array_string1 и array_string2,
 верните True, если они представляют одинаковые строки, и False в противном случае.
 Пример:
 1) array_string_1 = ['ab', 'c'], array_string_2 = ['a', 'bc'] => 'abc' == 'abc' (True)
@@ -12,14 +13,23 @@ pytest ./1_two_string_array_equivalent/test.py
 """
 
 
-def is_array_string_are_equal(array_string_1: list[str], array_string_2: list[str]) -> bool:
-    string_1 = ''
-    string_2 = ''
+def is_array_string_are_equal(array_string1: list[str], array_string2: list[str]) -> bool:
+    """Return the result of a string comparison.
 
-    while array_string_1:
-        string_1 += array_string_1.pop().lower()
+    Parameters:
+        array_string1 (list[str]): A list of strings
+        array_string2 (list[str]): A list of strings
 
-    while array_string_2:
-        string_2 += array_string_2.pop().lower()
+    Returns:
+        bool(string1 == string2)
+    """
+    string1 = ''
+    string2 = ''
 
-    return bool(string_1 == string_2)
+    while array_string1:
+        string1 += array_string1.pop(0).lower()
+
+    while array_string2:
+        string2 += array_string2.pop(0).lower()
+
+    return bool(string1 == string2)
