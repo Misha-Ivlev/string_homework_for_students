@@ -1,4 +1,5 @@
-"""
+r"""Домашнее задание 4.
+
 Вы - начинающий журналист. Накануне вечером вы написали статью про кошек для ветеринарного журнала,
 но забыли заблокировать компьютер. На утро вы обнаружили, что вашей собаке не понравилось, что пишете вы про кошек,
 а не про собак.
@@ -22,7 +23,7 @@
 Реализуйте код, который восстановит статью и вернет ее в качестве результата работы функции.
 
 Проверка результата:
-pytest ./4_safe_text/text.py
+pytest ./4_safe_text/test.py
 """
 import os
 
@@ -31,8 +32,8 @@ SPLIT_SYMBOL = '.\n'
 
 
 def get_article(path: str) -> str:
-    with open(path, 'r') as file:
-        file_article = file.read()
+    with open(path, 'r') as my_file:
+        file_article = my_file.read()
     return file_article
 
 
@@ -48,4 +49,14 @@ def recover_article() -> str:
     wrong_article = get_wrong_article()
 
     # Ваш код ниже, возвращайте уже отредактированный текст!
-    return wrong_article
+    right_article = ''
+    wrong_article = wrong_article.replace('!', '')
+    wrong_article = wrong_article.split('.')
+    for sentence in wrong_article[:-1]:
+        sentence = sentence[-1::-1]
+        sentence = sentence.replace('\n', '')
+        sentence = sentence.replace('WOOF-WOOF', 'CAT')
+        sentence = sentence.capitalize()
+        right_article += sentence + '.\n'
+
+    return right_article
