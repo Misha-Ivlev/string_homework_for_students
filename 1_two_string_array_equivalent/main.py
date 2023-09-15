@@ -1,7 +1,7 @@
 """Домашнее задание 1.
 
-На вход даны два массива строк array_string1 и array_string2,
-верните True, если они представляют одинаковые строки, и False в противном случае.
+На вход даны два массива строк array_string1 и array_string2, верните True, если
+они представляют одинаковые строки, и False в противном случае.
 Пример:
 1) array_string_1 = ['ab', 'c'], array_string_2 = ['a', 'bc'] => 'abc' == 'abc' (True)
 1) array_string_1 = ['ab'], array_string_2 = ['a', 'bc'] => 'ab' != 'abc' (False)
