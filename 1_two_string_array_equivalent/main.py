@@ -23,13 +23,7 @@ def is_array_string_are_equal(array_string1: list[str], array_string2: list[str]
     Returns:
         bool(string1 == string2)
     """
-    string1 = ''
-    string2 = ''
-
-    while array_string1:
-        string1 += array_string1.pop(0).lower()
-
-    while array_string2:
-        string2 += array_string2.pop(0).lower()
+    string1 = ''.join(array_string1).lower()
+    string2 = ''.join(array_string2).lower()
 
     return bool(string1 == string2)
