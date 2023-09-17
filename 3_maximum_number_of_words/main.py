@@ -14,15 +14,15 @@ def get_max_number_of_words_from_sentences(sentences: list[str]) -> int:
     """Return maximum number of words in list lines.
 
     Parameters:
-        sentences (list[str]): The list of sentences we wath to check
+        sentences (list[str]): The list of sentences we want to check
 
     Returns:
         max_words_number (int): maximum number of words in list lines
     """
     max_words_number = 0
     for sentence in sentences:
-        empty_check = int(bool(sentence))
-        sentence_words_number = sentence.count(' ', 1, len(sentence)) + empty_check
+        empty_check = int(not bool(sentence))
+        sentence_words_number = len(sentence.split(' ')) - empty_check
         max_words_number = max(sentence_words_number, max_words_number)
 
     return max_words_number
