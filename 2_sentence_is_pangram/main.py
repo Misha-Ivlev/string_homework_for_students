@@ -8,6 +8,8 @@
 pytest ./2_sentence_is_pangram/test.py
 """
 
+import string
+
 
 def is_sentence_is_pangram(sentence: str) -> bool:
     """Return the conclusion that this is a pangram sentence.
@@ -18,8 +20,8 @@ def is_sentence_is_pangram(sentence: str) -> bool:
     Returns:
         True if the sentense is pangram else - False
     """
-    ALPHABET_POWER = 26
-    LOWER_A_ASCII_CODE = 97
+    ALPHABET_POWER = len(string.ascii_lowercase())
+    LOWER_A_ASCII_CODE = ord('a')
     alphabet = [False for _ in range(ALPHABET_POWER)]
     for word in sentence:
         alphabet[ord(word.lower()) - LOWER_A_ASCII_CODE] = True
