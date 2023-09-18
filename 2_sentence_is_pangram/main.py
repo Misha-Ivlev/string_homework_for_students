@@ -20,10 +20,8 @@ def is_sentence_is_pangram(sentence: str) -> bool:
     Returns:
         True if the sentense is pangram else - False
     """
-    ALPHABET_POWER = len(string.ascii_lowercase())
-    LOWER_A_ASCII_CODE = ord('a')
-    alphabet = [False for _ in range(ALPHABET_POWER)]
+    alphabet = [False for _ in range(len(string.ascii_lowercase))]
     for word in sentence:
-        alphabet[ord(word.lower()) - LOWER_A_ASCII_CODE] = True
+        alphabet[ord(word.lower()) - ord('a')] = True
 
     return False not in alphabet
