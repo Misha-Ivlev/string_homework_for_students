@@ -49,14 +49,11 @@ def recover_article() -> str:
     wrong_article = get_wrong_article()
 
     # Ваш код ниже, возвращайте уже отредактированный текст!
-    right_article = ''
-    wrong_article = wrong_article.replace('!', '')
-    wrong_article = wrong_article.split('.')
-    for sentence in wrong_article[:-1]:
-        sentence = sentence[-1::-1]
-        sentence = sentence.replace('\n', '')
+    right_article = []
+    for sentence in wrong_article.split(SPLIT_SYMBOL):
+        sentence_length = len(sentence)
+        sentence = sentence[-(sentence_length // 2 + 1)::-1]
         sentence = sentence.replace('WOOF-WOOF', 'CAT')
-        sentence = sentence.capitalize()
-        right_article += sentence + '.\n'
+        right_article.append(sentence.capitalize())
 
-    return right_article
+    return SPLIT_SYMBOL.join(right_article)
